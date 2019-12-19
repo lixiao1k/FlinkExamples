@@ -33,13 +33,10 @@ public class WordCountSQL {
         // run a SQL query on the Table and retrieve the result as a new Table
         Table table = tEnv.sqlQuery(
                 "SELECT word, SUM(frequency) as frequency FROM WC GROUP BY word");
+        System.out.println(tEnv.explain(table));
 
         table.print();
     }
-
-    // *************************************************************************
-    //     USER DATA TYPES
-    // *************************************************************************
 
     /**
      * Simple POJO containing a word and its respective count.
